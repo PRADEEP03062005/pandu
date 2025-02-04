@@ -1,13 +1,43 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="248dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="-36dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginBottom="519dp"
+        app:srcCompat="@drawable/indoor_navigation_system" />
+
     <TextView
         android:id="@+id/dataTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="372dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="293dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="377dp"
         android:text="Fetching data..."
-        android:textSize="18sp" />
+        android:textSize="30sp" />
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="365dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="367dp" />
 
 </RelativeLayout>

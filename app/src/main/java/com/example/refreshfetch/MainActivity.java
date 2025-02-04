@@ -3,6 +3,8 @@ package com.example.refreshfetch;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONArray;
@@ -25,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        WebView webView = findViewById(R.id.webview);
+        webView.setWebViewClient(new WebViewClient()); // Ensures that links open within the WebView
+        webView.getSettings().setJavaScriptEnabled(true); // Enables JavaScript
+        webView.loadUrl("https://www.openstreetmap.org/#map=6/11.64/79.28");
 
         dataTextView = findViewById(R.id.dataTextView);
 
@@ -78,8 +84,9 @@ public class MainActivity extends AppCompatActivity {
                     if (feeds.length() > 0) {
                         JSONObject feed = feeds.getJSONObject(0);
                         String field1 = feed.getString("field1");
-                        result = "Field1: " + field1;
+                        result = field1;
                     }
+
 
                     in.close();
                 } finally {
@@ -89,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
                 result = "Error fetching data";
             }
+
+
             return result;
         }
 
